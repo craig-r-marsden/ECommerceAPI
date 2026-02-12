@@ -1,0 +1,59 @@
+### E-Commerce API Tests
+
+@baseUrl = https://localhost:7000
+@correlationId = {{$guid}}
+
+### 1. Create a new product
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+X-Correlation-ID: {{correlationId}}
+
+{
+  "name": "Laptop Pro 15",
+  "description": "High-performance laptop with 16GB RAM and 512GB SSD"
+}
+
+### 2. Create another product
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+X-Correlation-ID: {{$guid}}
+
+{
+  "name": "Wireless Mouse",
+  "description": "Ergonomic wireless mouse with 6 buttons"
+}
+
+### 3. Create product with validation error (name too long)
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+X-Correlation-ID: {{$guid}}
+
+{
+  "name": "This is a very long product name that exceeds the maximum allowed length of 200 characters which should cause a validation error and return a 400 bad request response with details about what went wrong in the validation process",
+  "description": "Test product"
+}
+
+### 4. Create product with missing fields
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+X-Correlation-ID: {{$guid}}
+
+{
+  "name": ""
+}
+
+### 5. Get product by ID (with inventory data)
+GET {{baseUrl}}/api/products/1
+X-Correlation-ID: {{$guid}}
+
+### 6. Get non-existent product
+GET {{baseUrl}}/api/products/999
+X-Correlation-ID: {{$guid}}
+
+### 7. Get all products
+GET {{baseUrl}}/api/products
+X-Correlation-ID: {{$guid}}
+
+### 8. Test mock inventory API directly
+GET {{baseUrl}}/api/inventory/1
+X-Correlation-ID: {{$guid}}
