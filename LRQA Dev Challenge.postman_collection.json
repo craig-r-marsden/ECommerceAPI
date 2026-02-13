@@ -65,7 +65,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "https://localhost:7025/api/Products/3",
+          "raw": "https://localhost:7025/api/inventory/3",
           "protocol": "https",
           "host": [
             "localhost"
@@ -73,7 +73,7 @@
           "port": "7025",
           "path": [
             "api",
-            "Products",
+            "inventory",
             "3"
           ]
         },
