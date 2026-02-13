@@ -15,6 +15,15 @@ public class InventoryController : ControllerBase
         _logger = logger;
     }
 
+    /// <summary>
+    /// Retrieves mock inventory data for a specific product.
+    /// </summary>
+    /// <param name="productId">The unique identifier of the product.</param>
+    /// <returns>Inventory data including price and stock quantity.</returns>
+    /// <response code="200">Returns the inventory data for the specified product.</response>
+    /// <remarks>
+    /// This is a mock endpoint that generates random inventory data for testing purposes.
+    /// </remarks>
     [HttpGet("{productId}")]
     public ActionResult<InventoryData> GetInventory(int productId)
     {

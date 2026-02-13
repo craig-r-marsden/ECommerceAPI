@@ -1,6 +1,6 @@
 ### E-Commerce API Tests
 
-@baseUrl = https://localhost:7000
+@baseUrl = https://localhost:7025
 @correlationId = {{$guid}}
 
 ### 1. Create a new product
