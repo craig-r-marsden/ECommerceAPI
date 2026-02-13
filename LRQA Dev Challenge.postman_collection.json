@@ -1,0 +1,568 @@
+{
+  "info": {
+    "_postman_id": "e6a1bfb2-a408-4cfb-bc50-5046c91cc3e9",
+    "name": "LRQA Dev Challenge",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52354512",
+    "_collection_link": "https://go.postman.co/collection/52354512-e6a1bfb2-a408-4cfb-bc50-5046c91cc3e9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get product",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7025/api/Products/3",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "Products",
+            "3"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Get inventory",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7025/api/Products/3",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "Products",
+            "3"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Get product (doesn't exist)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7025/api/Products/999",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "Products",
+            "999"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Get products",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7025/api/Products",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "Products"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Create product",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Correlation-ID",
+            "value": "test-001",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Laptop\",\"description\":\"Gaming laptop with RTX 4080\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7025/api/products",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "products"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Create product (no name)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Correlation-ID",
+            "value": "test-001",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"\",\"description\":\"Gaming laptop with RTX 4080\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7025/api/products",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "products"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Create product (200 char name)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Correlation-ID",
+            "value": "test-001",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a\",\"description\":\"Gaming laptop with RTX 4080\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7025/api/products",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "products"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Create product (201 char name)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Correlation-ID",
+            "value": "test-001",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut al\",\"description\":\"Gaming laptop with RTX 4080\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7025/api/products",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "products"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Create product (no description)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Correlation-ID",
+            "value": "test-001",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Laptop3\",\"description\":\"\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7025/api/products",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "products"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Create product (2000 char description)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Correlation-ID",
+            "value": "test-001",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Laptop3\",\"description\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum mauris lectus, id ornare ligula dignissim a. Cras porttitor consequat dignissim. Etiam fringilla turpis luctus, elementum magna in, porta diam. Sed scelerisque turpis vitae ligula feugiat, non pellentesque metus egestas. Sed ac tincidunt ex. Donec nisi risus, ornare quis tellus quis, interdum aliquet metus. Nam libero velit, facilisis vel est et, cursus laoreet diam. Nulla id sapien at lectus mattis tempus iaculis in nulla. Integer a gravida tortor, eu tincidunt eros. Etiam accumsan nunc sed porta tincidunt. Nullam placerat rutrum elit, ut sollicitudin urna consectetur eget. Pellentesque pellentesque porta condimentum. Mauris in suscipit eros. Cras fringilla libero ut eros rutrum vestibulum. Curabitur finibus ex sed suscipit luctus. Sed lacus eros, ornare sed mi in, sodales iaculis eros. In malesuada orci sem, non elementum purus vestibulum vitae. Curabitur diam elit, gravida eu mattis ac, bibendum eget ex. Mauris quis ipsum mollis lacus elementum interdum. Mauris quis rutrum erat. In justo odio, viverra in lacinia vitae, tincidunt quis nunc. Curabitur vel tempor dui, vel sagittis enim. Morbi urna tellus, aliquet at libero at, lacinia ultrices magna. Nulla sapien massa, bibendum vel ultricies nec, tempor eu quam. Sed at quam sapien. Vestibulum metus sem, eleifend non ullamcorper in, mattis vel arcu. Pellentesque quis elit tellus. Integer dapibus purus magna, venenatis efficitur metus porta nec. Aliquam auctor mollis finibus. Fusce et elementum purus, sed luctus tellus. Vestibulum facilisis urna eget nisi feugiat, sit amet sollicitudin nunc egestas. Fusce imperdiet in libero id mattis. Duis facilisis massa ac nisi ultrices, placerat molestie nisi gravida. Cras suscipit, ipsum pulvinar pretium sollicitudin, diam eros ultricies velit, ac tristique nulla nibh a nisi. Donec elementum enim eget pharetra sollicitudin. Nunc in ipsum ac eros tempus aliquam. Suspendisse non lectus tempus, hendrerit leo nec\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7025/api/products",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "products"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Create product (2001 char description)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "X-Correlation-ID",
+            "value": "test-001",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Laptop3\",\"description\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum mauris lectus, id ornare ligula dignissim a. Cras porttitor consequat dignissim. Etiam fringilla turpis luctus, elementum magna in, porta diam. Sed scelerisque turpis vitae ligula feugiat, non pellentesque metus egestas. Sed ac tincidunt ex. Donec nisi risus, ornare quis tellus quis, interdum aliquet metus. Nam libero velit, facilisis vel est et, cursus laoreet diam. Nulla id sapien at lectus mattis tempus iaculis in nulla. Integer a gravida tortor, eu tincidunt eros. Etiam accumsan nunc sed porta tincidunt. Nullam placerat rutrum elit, ut sollicitudin urna consectetur eget. Pellentesque pellentesque porta condimentum. Mauris in suscipit eros. Cras fringilla libero ut eros rutrum vestibulum. Curabitur finibus ex sed suscipit luctus. Sed lacus eros, ornare sed mi in, sodales iaculis eros. In malesuada orci sem, non elementum purus vestibulum vitae. Curabitur diam elit, gravida eu mattis ac, bibendum eget ex. Mauris quis ipsum mollis lacus elementum interdum. Mauris quis rutrum erat. In justo odio, viverra in lacinia vitae, tincidunt quis nunc. Curabitur vel tempor dui, vel sagittis enim. Morbi urna tellus, aliquet at libero at, lacinia ultrices magna. Nulla sapien massa, bibendum vel ultricies nec, tempor eu quam. Sed at quam sapien. Vestibulum metus sem, eleifend non ullamcorper in, mattis vel arcu. Pellentesque quis elit tellus. Integer dapibus purus magna, venenatis efficitur metus porta nec. Aliquam auctor mollis finibus. Fusce et elementum purus, sed luctus tellus. Vestibulum facilisis urna eget nisi feugiat, sit amet sollicitudin nunc egestas. Fusce imperdiet in libero id mattis. Duis facilisis massa ac nisi ultrices, placerat molestie nisi gravida. Cras suscipit, ipsum pulvinar pretium sollicitudin, diam eros ultricies velit, ac tristique nulla nibh a nisi. Donec elementum enim eget pharetra sollicitudin. Nunc in ipsum ac eros tempus aliquam. Suspendisse non lectus tempus, hendrerit leo nec,\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7025/api/products",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7025",
+          "path": [
+            "api",
+            "products"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    }
+  ]
+}
