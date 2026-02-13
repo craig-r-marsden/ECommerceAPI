@@ -14,6 +14,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
         sqlServerOptions => sqlServerOptions.EnableRetryOnFailure()
     ));
 
+builder.Services.AddScoped<IProductsService, ProductsService>();
+
 builder.Services.AddHttpClient<IInventoryService, InventoryService>(client =>
 {
     var baseUrl = builder.Configuration["InventoryApi:BaseUrl"] ?? "https://localhost:7000";
