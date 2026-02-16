@@ -27,8 +27,16 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
+    // Maps the OpenAPI spec document, view at /openapi/v1.json
     app.MapOpenApi();
-    
+
+    // Add Swagger UI for testing endpoints
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/openapi/v1.json", "E-Commerce API v1");
+        c.RoutePrefix = "swagger"; // UI available at /swagger or /swagger/index.html
+    });
+
     using (var scope = app.Services.CreateScope())
     {
         var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();

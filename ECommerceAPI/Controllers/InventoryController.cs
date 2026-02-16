@@ -20,11 +20,14 @@ public class InventoryController : ControllerBase
     /// </summary>
     /// <param name="productId">The unique identifier of the product.</param>
     /// <returns>Inventory data including price and stock quantity.</returns>
-    /// <response code="200">Returns the inventory data for the specified product.</response>
     /// <remarks>
-    /// This is a mock endpoint that generates random inventory data for testing purposes.
+    /// Sample request:
+    /// 
+    ///     GET /api/Inventory/3
     /// </remarks>
-    [HttpGet("{productId}")]
+    /// <response code="200">Returns the inventory data for the specified product.</response>
+    [HttpGet("{productId:int}")]
+    [ProducesResponseType(typeof(InventoryData), StatusCodes.Status200OK)]
     public ActionResult<InventoryData> GetInventory(int productId)
     {
         var correlationId = Request.Headers["X-Correlation-ID"].FirstOrDefault();
